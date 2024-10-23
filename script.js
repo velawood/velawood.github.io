@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const countdownElement = document.querySelector('.countdown-section');
     const emailInput = document.querySelector('.email-input')
     const submitButton = document.querySelector('.notify-button')
     // NOTE: MOVE DEPLOYEMENT_ID IN CONFIG BEFORE DEPLOYMENT
@@ -47,33 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = false;
         }
     })
-
-
-
-    const updateCountdown = () => {
-        const now = new Date().getTime();
-        const targetDate = new Date('2024-11-01T00:00:00').getTime();
-        const timeRemaining = targetDate - now;
-
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-
-        countdownElement.innerHTML = `
-            <div class="time-unit">
-                <span class="number">${days}</span>
-                <span class="label">Days</span>
-            </div>
-            <div class="time-unit">
-                <span class="number">${hours}</span>
-                <span class="label">Hours</span>
-            </div>
-            <div class="time-unit">
-                <span class="number">${minutes}</span>
-                <span class="label">Minutes</span>
-            </div>
-        `;
-    };
-
-    setInterval(updateCountdown, 5000);
 });
