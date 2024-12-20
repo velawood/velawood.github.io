@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.querySelector('.email-input')
-    const submitButton = document.querySelector('.notify-button')
-    // NOTE: MOVE DEPLOYEMENT_ID IN CONFIG BEFORE DEPLOYMENT
-    const deploymentId = 'AKfycbyOa4cOLCPpRAYehNxaKXdLry6dGBrHLFo701gC6qVXyttquBZ6sCap71TKvtizUYAQ'
+    const submitButton = document.querySelector('.subscribe-button')
+    const errorMessage = document.querySelector('.error-message');
+    const successMessage = document.querySelector('.success-message');
+    const visualizeDataBtn = document.querySelector(".visualize-data-button");
+
+    const deploymentId = 'AKfycbzWFI_9TEk3r_MHuBWBJJuYUgemJBg0i796TE_nk1DrsXzIzVfJdrgYHpQGo7pBfhROrA'
     const apiURL = `https://script.google.com/macros/s/${deploymentId}/exec`
 
     const validateEmail = (email) => {
@@ -12,16 +15,36 @@ document.addEventListener('DOMContentLoaded', () => {
         return emailPattern.test(email);
     }
 
+    function setDeviceType() {
+        const tableauVizs = document.querySelectorAll("#tableauViz");
+
+        tableauVizs.forEach(viz => {
+            if (window.innerWidth <= 767) {
+                viz.setAttribute("device", "phone");
+            } else if (window.innerWidth <= 1024) {
+                viz.setAttribute("device", "tablet");
+            } else {
+                viz.setAttribute("device", "desktop");
+            }
+        })
+    }
+
 
     submitButton.addEventListener('click', async (e) => {
         e.preventDefault()
 
         email = emailInput.value.trim();
+        successMessage.style.display = 'none';
 
         if (!validateEmail(email)) {
-            return alert('Please enter a valid email address.')
+            emailInput.classList.add('error');
+            errorMessage.textContent = 'Please enter a valid email address.';
+            errorMessage.style.display = 'inline';
+            return;
+        } else {
+            errorMessage.style.display = 'none';
         }
-    
+
         try {
             submitButton.disabled = true;
             const response = await fetch(apiURL, {
@@ -34,16 +57,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             if (result.status === 'success') {
-                window.location.href = 'thank-you.html';
+                successMessage.style.display = 'inline';
+                emailInput.value = ''
+                emailInput.classList.remove('error');
             } else {
                 throw new Error('Failed to submit email.');
             }
         } catch (ex) {
             console.error(ex)
-            alert('Something went wrong, please try again.');
+            emailInput.classList.add('error');
+            errorMessage.style.display = 'inline';
+            errorMessage.textContent = 'Something went wrong, please try again'
         }
         finally {
             submitButton.disabled = false;
         }
     })
+
+    visualizeDataBtn.addEventListener("click", function () {
+        document.querySelector(".deal-dashboard-section").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+
+    window.onload = setDeviceType;
+
 });

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texas Deals - Coming Soon</title>
+    <title>Texas Deals</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Source+Serif+Pro:wght@400;600;700&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -19,21 +21,179 @@
                 <span class="logo-text">TexasDeals</span>
             </div>
         </header>
-        <main class="main-content">
-            <h1 class="title">Venture Deal Data Coming Soon</h1>
-            <p class="subtitle">A new era of venture data is coming. Don't miss
-                your chance to stay informed.</p>
-            <div class="notify-section">
-                <form>
-                    <input type="email" required name="email" placeholder="Enter email"
-                        class="email-input">
-
-                    <button type="submit" class="notify-button">Notify
-                        Me</button>
-                </form>
+        <section class="landing-section">
+            <div>
+                <h1 class="title">Visualize Venture Transactions</h1>
+                <p class="subtitle">Texas Deals was founded with the mission
+                    of making
+                    information about raising capital more accessible to the
+                    Texas startup
+                    ecosystem. By providing a centralized platform for
+                    shared data and insights,
+                    we aim to accelerate the growth of venture capital
+                    across the state.</p>
+                <button type="submit" class="visualize-data-button">
+                    <span>Visualize Data</span>
+                    <img src="assets/right-arrow-icon.svg" alt="">
+                </button>
             </div>
-        </main>
+        </section>
     </div>
-    <script src="script.js"></script>
+    <section class="statictics-section">
+        <div>
+            <div class="statistics-icon">
+                <img src="assets/statistics-icon.svg" alt="">
+            </div>
+            <h4>
+                See What the Stats Say
+            </h4>
+            <p>
+                Take a look at the key statistics for the year 2024
+            </p>
+            <div class="stats-viz-container">
+                <tableau-viz id="tableauViz"
+                    src="https://public.tableau.com/views/filter_test_17303576043040/Dashboard1"
+                    device="desktop">
+                </tableau-viz>
+                <div class="cursor-overlay"></div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <section class="deal-dashboard-section">
+            <h4>Deal Dashboard</h4>
+            <p>
+                Gain a comprehensive understanding of startup valuations and
+                investment trends with our Deal Dashboard. Use the filters
+                to customize your analysis by year, industry, city, and deal
+                structure, allowing you to track average pre-money
+                valuations and round sizes across various stages.
+            </p>
+            <div class="deal-dashboard">
+                <tableau-viz id="tableauViz"
+                    src="https://public.tableau.com/views/DealDashboard-copy/Yearly?:language=en-GB&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                    device="desktop">
+                </tableau-viz>
+            </div>
+        </section>
+        <section class="city-deals-section">
+            <div class="city-deals-section-map">
+                <div class='tableauPlaceholder' id='viz1730981265548'
+                    style='position: relative'><noscript><a href='#'><img
+                                alt='Sheet 1 '
+                                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17295934670790&#47;Sheet1&#47;1_rss.png'
+                                style='border: none' /></a></noscript><object
+                        class='tableauViz' style='display:none;'>
+                        <param name='host_url'
+                            value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name'
+                            value='Book1_17295934670790&#47;Sheet1' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image'
+                            value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17295934670790&#47;Sheet1&#47;1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-GB' />
+                        <param name='filter' value='publish=yes' />
+                    </object></div>
+                <script
+                    type='text/javascript'>                    var divElement = document.getElementById('viz1730981265548'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            </div>
+            <div class="city-deals-section-text">
+                <h4>Deals by Cities</h4>
+                <p>
+                    Discover how venture capital is distributed across key
+                    Texas cities,
+                    highlighting regions with some of the highest investment
+                    activity.
+                </p>
+
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="left-icon">
+                <img src="assets/left.svg" alt="">
+            </div>
+            <div class="cta-content">
+                <img src="assets/growth-icon.svg" alt="">
+                <h3>Have deal data? Help grow Texas Deals by submitting your
+                    deal data</h3>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5f7C6paK2FZ96C0FJpPOhgE3qcRVDz3fSlDcG1fMT9wqSKA/viewform"
+                    class="cta-button" target="_blank"
+                    rel="noopener noreferrer">Add
+                    Your
+                    Data</a>
+            </div>
+            <div class="right-icon">
+                <img src="assets/right.svg" alt="">
+            </div>
+        </section>
+    </div>
+    <section class="subscription-section">
+        <h2>Subscribe For Updates</h2>
+        <form class="subscription-form">
+            <div>
+                <input type="email" class="email-input"
+                    placeholder="Enter email" required>
+                <button type="submit"
+                    class="subscribe-button">Subscribe</button>
+            </div>
+            <div class="error-container">
+                <span class="error-message">Please enter a valid email
+                    address.</span>
+            </div>
+            <div class="success-container">
+                <span class="success-message">Welcome aboard! Your subscription
+                    was successful, and updates are on the way.</span>
+            </div>
+        </form>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/velawood/" target="_blank"
+                rel="noopener noreferrer">
+                <img src="assets/instagram-icon.svg" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/vela-wood/posts/?feedView=all"
+                target="_blank" rel="noopener noreferrer">
+                <img src="assets/linkedin-icon.svg" alt="LinkedIn">
+            </a>
+            <a href="https://velawood.com/podcasts/" target="_blank"
+                rel="noopener noreferrer">
+                <img src="assets/podcast-icon.svg" alt="Podcast">
+            </a>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="logo-and-legal">
+                <span class="footer-logo-text">TD</span>
+                <span class="legal-text">© 2024 All rights reserved</span>
+            </div>
+            <div class="powered-by">
+                <span>Powered By:</span>
+                <a href="https://velawood.com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img class="valewood-logo" src="assets/velawood-logo.svg"
+                        alt="Vela Wood">
+                </a>
+                <span>&</span>
+                <a href="https://arbisoft.com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img class="arbisoft-logo" src="assets/arbisoft-logo.svg"
+                        alt="Arbisoft">
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
+<script src="script.js"></script>
+<script type="module"
+    src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"></script>
+
 </html>
